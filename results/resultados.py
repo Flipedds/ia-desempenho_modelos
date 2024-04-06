@@ -1,3 +1,4 @@
+from typing import override
 import numpy as np
 class ListaResultados:
     def __init__(self):
@@ -8,11 +9,15 @@ class ListaResultados:
 
     def count_resultados(self) -> int:
         return len(self.resultados)
+    
+    def get_resultados(self):
+        pass
 
 class ListaResultadosKnn(ListaResultados):
     def __init__(self):
         super().__init__()
 
+    @override
     def get_resultados(self):
         print("KNN - Resultados:", end=" ")
         for i in range(self.count_resultados()):
@@ -25,7 +30,8 @@ class ListaResultadosKnn(ListaResultados):
 class ListaResultadosArvoreDecisao(ListaResultados):
     def __init__(self):
         super().__init__()
-
+    
+    @override
     def get_resultados(self):
         print("Árvore de Decisão - Resultados:", end="")
         for i in range(self.count_resultados()):
@@ -38,7 +44,8 @@ class ListaResultadosArvoreDecisao(ListaResultados):
 class ListaResultadosSvm(ListaResultados):
     def __init__(self):
         super().__init__()
-
+    
+    @override
     def get_resultados(self):
         print("SVM - Resultados:", end=" ")
         for i in range(self.count_resultados()):
@@ -52,6 +59,7 @@ class ListaResultadosRegLog(ListaResultados):
     def __init__(self):
         super().__init__()
 
+    @override
     def get_resultados(self):
         print("Regressão Logística - Resultados:", end=" ")
         for i in range(self.count_resultados()):
@@ -65,6 +73,7 @@ class ListaResultadosRandomForest(ListaResultados):
     def __init__(self):
         super().__init__()
 
+    @override
     def get_resultados(self):
         print("Random Forest - Resultados:", end=" ")
         for i in range(self.count_resultados()):
@@ -77,7 +86,8 @@ class ListaResultadosRandomForest(ListaResultados):
 class ListaResultadosGausianNb(ListaResultados):
     def __init__(self):
         super().__init__()
-        
+
+    @override    
     def get_resultados(self):
         print("Gausian NB - Resultados:", end=" ")
         for i in range(self.count_resultados()):
