@@ -1,7 +1,5 @@
 import datetime
 import pandas as pd
-import pandas as pd
-import pandas as pd
 from results.resultados import *
 from train.treinamento import TreinamentoModelo
 from clean.limpeza import limpar_dados_banana

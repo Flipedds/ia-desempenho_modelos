@@ -22,6 +22,6 @@ def limpar_dados_banana(dados_banana: pd.DataFrame) -> pd.DataFrame:
 def preparar_para_treinamento(dados_banana: pd.DataFrame) -> tuple:
     X = dados_banana.drop(columns=['Qualidade'])
     y = dados_banana['Qualidade']
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=random.uniform(0.10, 0.80))
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=random.uniform(0.10, 0.40))
 
     return X_train, X_test, y_train, y_test
