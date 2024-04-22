@@ -4,8 +4,8 @@ class ListaResultados:
     def __init__(self):
         self.resultados: list = []
 
-    def add_resultado(self, resultado: float):
-        self.resultados.append(resultado)
+    def add_resultado(self, resultados: list):
+        self.resultados.append(resultados)
 
     def count_resultados(self) -> int:
         return len(self.resultados)
@@ -20,10 +20,20 @@ class ListaResultadosKnn(ListaResultados):
     @override
     def get_resultados(self):
         print("KNN - Resultados:", end=" ")
-        for i in range(self.count_resultados()):
-            print(f"{ round(self.resultados[i], 2) }", end=" ")
-        print(f"\n Média Knn: {np.mean(self.resultados)}")
-        print(f" Desvio padrão Knn: {np.std(self.resultados)}")
+        print(f"\nMédia Knn acurrácia: {np.mean([self.resultados[i][0] for i in range(self.count_resultados())])}")
+        print(f"Std Knn acurrácia: {np.std([self.resultados[i][0] for i in range(self.count_resultados())])}")
+
+        print(f"Média Knn recall: {np.mean([self.resultados[i][1] for i in range(self.count_resultados())])}")
+        print(f"Std Knn recall: {np.std([self.resultados[i][1] for i in range(self.count_resultados())])}")
+
+        print(f"Média Knn especify: {np.mean([self.resultados[i][2] for i in range(self.count_resultados())])}")
+        print(f"Std Knn especify: {np.std([self.resultados[i][2] for i in range(self.count_resultados())])}")
+
+        print(f"Média Knn precision: {np.mean([self.resultados[i][3] for i in range(self.count_resultados())])}")
+        print(f"Std Knn precision: {np.std([self.resultados[i][3] for i in range(self.count_resultados())])}")
+
+        print(f"Média Knn f1: {np.mean([self.resultados[i][4] for i in range(self.count_resultados())])}")
+        print(f"Std Knn f1: {np.std([self.resultados[i][4] for i in range(self.count_resultados())])}")
         print(f" Quantidade de resultados: {self.count_resultados()}")
         print("------------------------------------------------------------")
 
@@ -34,10 +44,21 @@ class ListaResultadosArvoreDecisao(ListaResultados):
     @override
     def get_resultados(self):
         print("Árvore de Decisão - Resultados:", end="")
-        for i in range(self.count_resultados()):
-            print(f"{ round(self.resultados[i], 2) }", end=" ")
-        print(f"\n Média Árvore de Decisão: {np.mean(self.resultados)}")
-        print(f" Desvio padrão Árvore de Decisão: {np.std(self.resultados)}")
+        print(f"\nMédia Decision Tree acurrácia: {np.mean([self.resultados[i][0] for i in range(self.count_resultados())])}")
+        print(f"Std Decision Tree acurrácia: {np.std([self.resultados[i][0] for i in range(self.count_resultados())])}")
+
+        print(f"Média Decision Tree recall: {np.mean([self.resultados[i][1] for i in range(self.count_resultados())])}")
+        print(f"Std Decision Tree recall: {np.std([self.resultados[i][1] for i in range(self.count_resultados())])}")
+
+        print(f"Média Decision Tree especify: {np.mean([self.resultados[i][2] for i in range(self.count_resultados())])}")
+        print(f"Std Decision Tree especify: {np.std([self.resultados[i][2] for i in range(self.count_resultados())])}")
+
+        print(f"Média Decision Tree precision: {np.mean([self.resultados[i][3] for i in range(self.count_resultados())])}")
+        print(f"Std Decision Tree precision: {np.std([self.resultados[i][3] for i in range(self.count_resultados())])}")
+
+        print(f"Média Decision Tree f1: {np.mean([self.resultados[i][4] for i in range(self.count_resultados())])}")
+        print(f"Std Decision Tree f1: {np.std([self.resultados[i][4] for i in range(self.count_resultados())])}")
+
         print(f" Quantidade de resultados: {self.count_resultados()}")
         print("------------------------------------------------------------")
 
@@ -48,10 +69,21 @@ class ListaResultadosSvm(ListaResultados):
     @override
     def get_resultados(self):
         print("SVM - Resultados:", end=" ")
-        for i in range(self.count_resultados()):
-            print(f"{ round(self.resultados[i], 2) }", end=" ")
-        print(f"\n Média SVM: {np.mean(self.resultados)}")
-        print(f" Desvio padrão SVM: {np.std(self.resultados)}")
+        print(f"\nMédia SVM acurrácia: {np.mean([self.resultados[i][0] for i in range(self.count_resultados())])}")
+        print(f"Std SVM acurrácia: {np.std([self.resultados[i][0] for i in range(self.count_resultados())])}")
+
+        print(f"Média SVM recall: {np.mean([self.resultados[i][1] for i in range(self.count_resultados())])}")
+        print(f"Std SVM recall: {np.std([self.resultados[i][1] for i in range(self.count_resultados())])}")
+
+        print(f"Média SVM especify: {np.mean([self.resultados[i][2] for i in range(self.count_resultados())])}")
+        print(f"Std SVM especify: {np.std([self.resultados[i][2] for i in range(self.count_resultados())])}")
+
+        print(f"Média SVM precision: {np.mean([self.resultados[i][3] for i in range(self.count_resultados())])}")
+        print(f"Std SVM precision: {np.std([self.resultados[i][3] for i in range(self.count_resultados())])}")
+
+        print(f"Média SVM f1: {np.mean([self.resultados[i][4] for i in range(self.count_resultados())])}")
+        print(f"Std SVM f1: {np.std([self.resultados[i][4] for i in range(self.count_resultados())])}")
+
         print(f" Quantidade de resultados: {self.count_resultados()}")
         print("------------------------------------------------------------")
 
@@ -62,10 +94,21 @@ class ListaResultadosRegLog(ListaResultados):
     @override
     def get_resultados(self):
         print("Regressão Logística - Resultados:", end=" ")
-        for i in range(self.count_resultados()):
-            print(f"{ round(self.resultados[i], 2) }", end=" ")
-        print(f"\n Média Regressão Logística: {np.mean(self.resultados)}")
-        print(f" Desvio padrão Regressão Logística: {np.std(self.resultados)}")
+        print(f"\nMédia Regressão Logística acurrácia: {np.mean([self.resultados[i][0] for i in range(self.count_resultados())])}")
+        print(f"Std Regressão Logística acurrácia: {np.std([self.resultados[i][0] for i in range(self.count_resultados())])}")
+
+        print(f"Média Regressão Logística recall: {np.mean([self.resultados[i][1] for i in range(self.count_resultados())])}")
+        print(f"Std Regressão Logística recall: {np.std([self.resultados[i][1] for i in range(self.count_resultados())])}")
+
+        print(f"Média Regressão Logística especify: {np.mean([self.resultados[i][2] for i in range(self.count_resultados())])}")
+        print(f"Std Regressão Logística especify: {np.std([self.resultados[i][2] for i in range(self.count_resultados())])}")
+
+        print(f"Média Regressão Logística precision: {np.mean([self.resultados[i][3] for i in range(self.count_resultados())])}")
+        print(f"Std Regressão Logística precision: {np.std([self.resultados[i][3] for i in range(self.count_resultados())])}")
+
+        print(f"Média Regressão Logística f1: {np.mean([self.resultados[i][4] for i in range(self.count_resultados())])}")
+        print(f"Std Regressão Logística f1: {np.std([self.resultados[i][4] for i in range(self.count_resultados())])}")
+
         print(f" Quantidade de resultados: {self.count_resultados()}")
         print("------------------------------------------------------------")
 
@@ -76,10 +119,21 @@ class ListaResultadosRandomForest(ListaResultados):
     @override
     def get_resultados(self):
         print("Random Forest - Resultados:", end=" ")
-        for i in range(self.count_resultados()):
-            print(f"{ round(self.resultados[i], 2) }", end=" ")
-        print(f"\n Média Random Forest: {np.mean(self.resultados)}")
-        print(f" Desvio padrão Random Forest: {np.std(self.resultados)}")
+        print(f"\nMédia Random Forest acurrácia: {np.mean([self.resultados[i][0] for i in range(self.count_resultados())])}")
+        print(f"Std Random Forest acurrácia: {np.std([self.resultados[i][0] for i in range(self.count_resultados())])}")
+
+        print(f"Média Random Forest recall: {np.mean([self.resultados[i][1] for i in range(self.count_resultados())])}")
+        print(f"Std Random Forest recall: {np.std([self.resultados[i][1] for i in range(self.count_resultados())])}")
+
+        print(f"Média Random Forest especify: {np.mean([self.resultados[i][2] for i in range(self.count_resultados())])}")
+        print(f"Std Random Forest especify: {np.std([self.resultados[i][2] for i in range(self.count_resultados())])}")
+
+        print(f"Média Random Forest precision: {np.mean([self.resultados[i][3] for i in range(self.count_resultados())])}")
+        print(f"Std Random Forest precision: {np.std([self.resultados[i][3] for i in range(self.count_resultados())])}")
+
+        print(f"Média Random Forest f1: {np.mean([self.resultados[i][4] for i in range(self.count_resultados())])}")
+        print(f"Std Random Forest f1: {np.std([self.resultados[i][4] for i in range(self.count_resultados())])}")
+
         print(f" Quantidade de resultados: {self.count_resultados()}")
         print("------------------------------------------------------------")
 
@@ -90,10 +144,21 @@ class ListaResultadosGausianNb(ListaResultados):
     @override    
     def get_resultados(self):
         print("Gausian NB - Resultados:", end=" ")
-        for i in range(self.count_resultados()):
-            print(f"{ round(self.resultados[i], 2) }", end=" ")
-        print(f"\n Média Gausian NB: {np.mean(self.resultados)}")
-        print(f" Desvio padrão Gausian NB: {np.std(self.resultados)}")
+        print(f"\nMédia Gausian NB acurrácia: {np.mean([self.resultados[i][0] for i in range(self.count_resultados())])}")
+        print(f"Std Gausian NB acurrácia: {np.std([self.resultados[i][0] for i in range(self.count_resultados())])}")
+
+        print(f"Média Gausian NB recall: {np.mean([self.resultados[i][1] for i in range(self.count_resultados())])}")
+        print(f"Std Gausian NB recall: {np.std([self.resultados[i][1] for i in range(self.count_resultados())])}")
+
+        print(f"Média Gausian NB especify: {np.mean([self.resultados[i][2] for i in range(self.count_resultados())])}")
+        print(f"Std Gausian NB especify: {np.std([self.resultados[i][2] for i in range(self.count_resultados())])}")
+
+        print(f"Média Gausian NB precision: {np.mean([self.resultados[i][3] for i in range(self.count_resultados())])}")
+        print(f"Std Gausian NB precision: {np.std([self.resultados[i][3] for i in range(self.count_resultados())])}")
+
+        print(f"Média Gausian NB f1: {np.mean([self.resultados[i][4] for i in range(self.count_resultados())])}")
+        print(f"Std Gausian NB f1: {np.std([self.resultados[i][4] for i in range(self.count_resultados())])}")
+        
         print(f" Quantidade de resultados: {self.count_resultados()}")
         print("------------------------------------------------------------")
 
